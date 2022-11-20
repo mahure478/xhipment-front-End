@@ -1,0 +1,47 @@
+.container {
+    .header {
+        mat-toolbar {
+            background-color: #3f51b5;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            .user-details{
+                display: flex;
+                align-items: center;
+                .name {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    .content {
+        .body {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-left: 17px;
+            cursor: pointer;
+            img {
+                margin-left: 10px;
+            }
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            font-size: 15px;
+            width: 30em;
+            margin-left:17px;
+            div {
+                font-size: 20px;
+                margin: 30px 0 20px 0;
+            }
+        }
+        .success {
+            margin: 20px 0 0 17px;
+            font-size: 20px;
+            color: limegreen;
+        }
+    }
+    
+}

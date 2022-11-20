@@ -1,0 +1,18 @@
+<div class="main-page">
+    <header>
+        <div>Posts</div>
+        <app-log-in></app-log-in>
+    </header>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+        <tr *ngFor="let data of postData">
+            <td>{{data?.id}}</td>
+            <td>{{data?.title}}</td>
+            <td>{{data?.body}}</td>
+        </tr>
+    </table>
+</div>

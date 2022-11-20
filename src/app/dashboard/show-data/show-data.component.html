@@ -1,0 +1,33 @@
+<div class="container">
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>UserId</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor= "let data of tableData; let i = index">
+                <td>{{data?.id}}</td>
+                <td>{{data?.userId}}</td>
+                <td>
+                    <span *ngIf="!data.edit">{{data?.title}}</span>
+                    <input *ngIf="data.edit" [(ngModel)]='data.title'/>
+                </td>
+                <td >
+                    <span *ngIf="!data.edit">{{data?.body}}</span>
+                    <input *ngIf="data.edit" [(ngModel)]='data.body'/>
+                </td>
+                <td  >
+                   <button *ngIf="!data.edit" (click)="onEdit(data,'Edit')">Edit</button> 
+                   <button *ngIf="data.edit" (click)="onEdit(data,'Save')">Save</button> 
+                </td>
+                <td>
+                    <button (click)="onDelete(i,data)"><img src="../../../assets/delete.png" /></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

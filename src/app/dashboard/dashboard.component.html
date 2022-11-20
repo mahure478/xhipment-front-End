@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="header">
+        <mat-toolbar>
+            <span>User Details</span>
+            <div class="user-details">
+                <span class="name">{{userDetails?.data?.userDetails?.name}}</span>
+                <img src="../../assets/icons8-test-account-40.png"/>
+                <button mat-button (click)="logout()">LogOut</button>
+            </div>
+        </mat-toolbar>
+    </div>
+    <div class="content">
+        <div class="body" (click)="createForm()">
+            <span>Create Posts</span>
+            <img src="../../assets/icons8-sum-24.png"/>
+        </div>
+
+        <form *ngIf='showForm' [formGroup]="postDetailsForm">
+            <div>Fill in the details below</div>
+            <mat-form-field >
+                <mat-label>User Id</mat-label>
+                <input matInput formControlName="userId">
+                <mat-error *ngIf="postDetailsForm.get('userId')?.errors?.['required']">Please Enter User Id</mat-error>
+            </mat-form-field>
+           
+            <mat-form-field >
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title">
+                <mat-error *ngIf="postDetailsForm.get('title')?.errors?.['required']">Please Enter Title</mat-error>
+            </mat-form-field>
+            <mat-form-field >
+                <mat-label>Body</mat-label>
+                <input matInput formControlName="body">
+                <mat-error *ngIf="postDetailsForm.get('title')?.errors?.['required']">Please Enter Body</mat-error>
+            </mat-form-field>
+            <button mat-raised-button (click)="createNewPost()">Submit</button>
+        </form>
+
+        <div *ngIf="showTable" class="success">Data Added Successfully!! Please scroll down to check.</div>
+
+        <app-show-data *ngIf="showTable" [data]="showData"></app-show-data>
+    </div>
+</div>
